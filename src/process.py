@@ -11,7 +11,6 @@ from pytz import timezone
 from itertools import chain
 import time
 import os
-from src.env import table_in_lists_env
 
 def start() -> None:
 
@@ -34,7 +33,8 @@ def start() -> None:
     ### Instânciando Controller GROUP - INTEGRADOR
     visitor_sql_int_controller = VisitorSqlIntController()
     # ### Instânciando 
-    # _table_in_lists_env = table_in_lists_env # Usada para fins de teste em desenvolvimento
+    if os.path.exists(table_in_lists_env):
+        _table_in_lists_env = table_in_lists_env # Usada para fins de teste em desenvolvimento
     time_start = datetime.now()
     _time_sleep = 300
     
